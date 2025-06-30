@@ -1,47 +1,31 @@
-import { Menu, User } from 'lucide-react';
 import { useState } from 'react';
+import { Menu } from 'lucide-react';
 import Sidebar from './Sidebar';
-import { useNavigate } from 'react-router-dom';
-
-import { removeToken } from '../utils/auth';
 
 export default function Navbar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    removeToken();
-    navigate('/login');
-  };
 
   return (
     <>
-      <header className="w-full h-16 flex items-center justify-between px-4 md:px-8 bg-white shadow-sm sticky top-0 z-30">
-        <div className="flex items-center gap-2">
-          <button
-            className="md:hidden p-2 rounded hover:bg-gray-100"
-            onClick={() => setSidebarOpen(true)}
-            aria-label="Abrir menú"
-          >
-            <Menu size={24} />
-          </button>
-          <span className="font-bold text-lg text-gray-800">GastosApp</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => navigate('/profile')}
-            className="bg-gray-100 text-blue-600 px-3 py-1 rounded hover:bg-blue-200 transition flex items-center gap-1"
-          >
-            <User size={18} /> Perfil
-          </button>
-          <button
-            onClick={handleLogout}
-            className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
-          >
-            Cerrar sesión
-          </button>
-        </div>
+      <header className="w-full h-14 flex items-center justify-between px-6 bg-gradient-to-r from-blue-700 via-blue-500 to-blue-400 shadow-lg sticky top-0 z-30 border-b border-blue-200">
+        {/* Botón para abrir sidebar en móvil */}
+        <button
+          className="md:hidden text-white"
+          onClick={() => setSidebarOpen(true)}
+          aria-label="Abrir menú"
+        >
+          <Menu size={24} />
+        </button>
+
+        {/* Título */}
+        <span className="font-extrabold text-xl text-white tracking-tight drop-shadow">
+          GastosApp
+        </span>
+
+        {/* Espacio para alinear con el ícono en la izquierda */}
+        <div className="w-6 md:hidden" />
       </header>
+
       {/* Sidebar móvil */}
       {sidebarOpen && (
         <div className="fixed inset-0 z-40 flex">

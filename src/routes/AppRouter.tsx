@@ -4,10 +4,10 @@ import Register from '../pages/Register';
 import Dashboard from '../pages/Dashboard';
 import MonthlyReport from '../pages/MonthlyReport';
 import NewExpense from '../pages/NewExpense';
-import Subscriptions from '../pages/Subscriptions';
 import Profile from '../pages/Profile';
 import Layout from '../layouts/Layout';
 import PrivateRoute from './PrivateRoute';
+import ExpensesList from '../pages/ExpensesList';
 
 export default function AppRouter() {
   return (
@@ -20,8 +20,8 @@ export default function AppRouter() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/report" element={<MonthlyReport />} />
             <Route path="/new-expense" element={<NewExpense />} />
-            <Route path="/subscriptions" element={<Subscriptions />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/expenses" element={<ExpensesList />} />
           </Route>
         </Route>
         <Route path="*" element={<Navigate to="/login" replace />} />

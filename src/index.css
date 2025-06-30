@@ -1,97 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&display=swap');
-
+/* Base */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', 'Poppins', system-ui, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  color: #1F1F1F;
+  background-color: #FFFFFF;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
-
-  @apply font-inter bg-lightblue text-dark;
+  background: #FFFFFF;
+  color: #1F1F1F;
+  font-family: 'Inter', 'Poppins', sans-serif;
 }
 
+/* Enlaces */
+a {
+  font-weight: 500;
+  color: #2764FF;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #1741a6;
+}
+
+/* Logo animado */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Tarjetas y contenedores */
+.card {
+  background: #FFFFFF;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px 0 #F0F0F0;
+  border: 1px solid #F0F0F0;
+  padding: 2em;
+  margin-bottom: 2em;
+}
+.bg-card {
+  background: #FFFFFF;
+}
+
+/* Inputs y botones */
 input, select, textarea {
-  @apply rounded-xl border border-graylight px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary bg-white text-dark placeholder-graymid transition;
+  border-radius: 1rem;
+  border: 1px solid #E0E0E0;
+  padding: 0.75em 1em;
+  background: #FFFFFF;
+  color: #1F1F1F;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid #2764FF;
+  border-color: #2764FF;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  border-radius: 1rem;
+  font-weight: 600;
   font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-
-  @apply rounded-xl font-semibold transition;
+  padding: 0.6em 1.2em;
+  border: none;
+  background: #2764FF;
+  color: #fff;
+  transition: background 0.2s;
 }
 button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background: #1741a6;
 }
 
-.card {
-  @apply bg-white rounded-xl p-6 mb-4 border border-graylight;
-}
+/* Utilidades */
+.text-primary { color: #2764FF; }
+.text-dark { color: #1F1F1F; }
+.text-secondary { color: #5E5E5E; }
+.text-icon { color: #BDBDBD; }
 
-/* Flat design, sin sombras exageradas */
-.shadow, .shadow-lg, .shadow-md, .shadow-sm {
-  box-shadow: none !important;
-}
+.border-separator { border-color: #E0E0E0; }
 
-/* Colores de éxito y error */
 .text-success { color: #27AE60; }
 .text-error { color: #EB5757; }
 .bg-success { background: #27AE60; }
 .bg-error { background: #EB5757; }
 
-/* Responsive helpers */
+hr, .divider { border-color: #E0E0E0; }
+
+/* Flat design */
+.shadow, .shadow-lg, .shadow-md, .shadow-sm {
+  box-shadow: none !important;
+}
+
+/* Responsive: padding más reducido en móviles */
 @media (max-width: 768px) {
   .card { padding: 1rem; }
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Documentación */
+.read-the-docs {
+  color: #888;
 }
